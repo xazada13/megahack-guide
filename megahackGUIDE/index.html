@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xa3ada1337 — MegaHack v9 Guide</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: #09090f;
+    --card: #11111a;
+    --border: #252436;
+    --purple: #9870ff;
+    --light: #c5adff;
+    --muted: #9290a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: #f5f3ff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    top: -350px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7545ed;
+    opacity: .13;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    width: min(100% - 36px, 950px);
+    margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff0d;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.brand-icon {
+    width: 37px;
+    height: 37px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#a47cff,#6338cf);
+    box-shadow: 0 0 25px #8955ff45;
+    font-size: 17px;
+}
+
+.brand-name span {
+    color: var(--purple);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #b3afc2;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    padding: 105px 0 75px;
+    text-align: center;
+    position: relative;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid #8c68ed50;
+    background: #8c68ed12;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: #a78bfa;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #a78bfa;
+}
+
+.hero h1 {
+    font-size: clamp(43px, 8vw, 76px);
+    letter-spacing: -4px;
+    line-height: 1.05;
+    margin-top: 28px;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#b99aff,#8252ed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 530px;
+    margin: 23px auto 0;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 23px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(135deg,#9c76ff,#7445df);
+    box-shadow: 0 7px 30px #8452ed35;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px #8452ed65;
+}
+
+.btn-secondary {
+    color: #ded6f5;
+    background: #ffffff08;
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: #ffffff12;
+    transform: translateY(-2px);
+}
+
+/* OWNER */
+
+.owner {
+    margin: 0 auto 55px;
+    padding: 19px 22px;
+    border: 1px solid #302747;
+    border-radius: 13px;
+    background: linear-gradient(100deg,#171323,#11111a);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#a78bfa,#6038be);
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.owner-info {
+    flex: 1;
+}
+
+.owner-info strong {
+    font-size: 14px;
+}
+
+.owner-info p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.owner-badge {
+    color: #bba5ff;
+    background: #8c68ed18;
+    border: 1px solid #8c68ed40;
+    border-radius: 7px;
+    padding: 6px 9px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* SECTIONS */
+
+.section {
+    margin-bottom: 22px;
+    padding: 29px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: linear-gradient(145deg,#15151f,#101018);
+    box-shadow: 0 15px 45px #00000015;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 9px;
+}
+
+.number {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    background: #8e68f31c;
+    border: 1px solid #8e68f33c;
+    border-radius: 10px;
+    color: #bba3ff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.section h2 {
+    font-size: 19px;
+    letter-spacing: -.5px;
+}
+
+.description {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 0 0 23px 51px;
+}
+
+/* VIDEO */
+
+.video-frame {
+    border: 1px solid #343044;
+    background: #07070c;
+    border-radius: 13px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+}
+
+.video-frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.video-note {
+    color: #777487;
+    font-size: 11px;
+    margin-top: 13px;
+}
+
+/* STEPS */
+
+.steps {
+    display: grid;
+    gap: 12px;
+}
+
+.step {
+    padding: 18px;
+    border: 1px solid #292738;
+    background: #0c0c14;
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.step:hover {
+    border-color: #7653cb;
+    transform: translateY(-2px);
+}
+
+.step-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.step-num {
+    color: #b99cff;
+    background: #8c68ed20;
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+.step p {
+    color: #9692a5;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.code {
+    margin-top: 13px;
+    position: relative;
+    background: #08080e;
+    border: 1px solid #292638;
+    padding: 15px;
+    border-radius: 9px;
+    color: #c4adff;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.copy {
+    margin-top: 9px;
+    padding: 8px 13px;
+    color: #c4adff;
+    border: 1px solid #59418e;
+    background: #211833;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.copy:hover {
+    background: #39265d;
+}
+
+/* DOWNLOAD */
+
+.download-box {
+    padding: 24px;
+    border: 1px solid #7553bb55;
+    border-radius: 13px;
+    background: linear-gradient(110deg,#231a37,#14111e);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.download-box h3 {
+    font-size: 16px;
+}
+
+.download-box p {
+    color: #a39aaf;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.download-box .btn {
+    margin: 0;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 60px;
+    padding: 27px 0;
+    border-top: 1px solid #ffffff0e;
+    text-align: center;
+}
+
+footer strong {
+    font-size: 14px;
+}
+
+footer strong span {
+    color: var(--purple);
+}
+
+footer p {
+    margin-top: 8px;
+    color: #777486;
+    font-size: 11px;
+}
+
+footer a {
+    color: #ad91ff;
+    text-decoration: none;
+}
+
+@media(max-width:600px) {
+    .hero {
+        padding: 75px 0 50px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .section {
+        padding: 19px;
+    }
+
+    .description {
+        margin-left: 0;
+    }
+
+    .owner {
+        padding: 15px;
+    }
+
+    .owner-badge {
+        font-size: 9px;
+    }
+
+    .download-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero, .owner, .section {
+    animation: appear .7s ease both;
+}
+
+.section:nth-of-type(2) { animation-delay: .1s; }
+.section:nth-of-type(3) { animation-delay: .2s; }
+.section:nth-of-type(4) { animation-delay: .3s; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+    <div class="brand">
+        <div class="brand-icon">M</div>
+        <div class="brand-name">MEGA<span>HACK</span> GUIDE</div>
+    </div>
+    <a class="nav-link"
+       href="https://playerok.com/"
+       target="_blank">xa3ada1337 - PLAYEROK ↗</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="tag">
+        <span class="dot"></span>
+        OFFICIAL BUYER GUIDE
+    </div>
+
+    <h1>MegaHack <span>v9</span></h1>
+
+    <p>
+        Персональная инструкция по установке и настройке
+        MegaHack v9 для Geometry Dash.
+        Все необходимые материалы собраны в одном месте.
+    </p>
+
+    <div class="buttons">
+        <a href="#video" class="btn btn-primary">
+            ▶ Смотреть инструкцию
+        </a>
+
+        <a href="#download" class="btn btn-secondary">
+            ↓ Скачать MegaHack
+        </a>
+    </div>
+</section>
+
+<!-- OWNER -->
+
+<div class="owner">
+    <div class="avatar">X</div>
+
+    <div class="owner-info">
+        <strong>xa3ada1337</strong>
+        <p>Автор инструкции · Продавец на Playerok</p>
+    </div>
+
+    <div class="owner-badge">SELLER</div>
+</div>
+
+<!-- VIDEO -->
+
+<section class="section" id="video">
+    <div class="section-heading">
+        <div class="number">01</div>
+        <h2>Видеоинструкция</h2>
+    </div>
+
+    <p class="description">
+        Полный процесс установки в одном видео.
+    </p>
+
+    <div class="video-frame">
+        <video controls preload="metadata">
+            <source src="video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <p class="video-note">
+        Видеоинструкция подготовлена продавцом xa3ada1337.
+    </p>
+</section>
+
+<!-- INSTRUCTION -->
+
+<section class="section" id="instruction">
+    <div class="section-heading">
+        <div class="number">02</div>
+        <h2>Команды</h2>
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-num">01</span>
+                Команда для консоли
+            </div>
+            <p>
+                Нажмите Win + R и впишите эту комманду:
+            </p>
+
+            <div class="code" id="command1">steam://open/console</div>
+            <button class="copy" onclick="copyText('command1',this)">
+                Копировать команду
+            </button>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-num">02</span>
+                Команда для консоли Steam
+            </div>
+            <p>
+                Эту комманду вставьте в консоль Steam
+            </p>
+
+            <div class="code" id="command2">download_depot 322170 322171 3816559102876907245</div>
+            <button class="copy" onclick="copyText('command2',this)">
+                Копировать команду
+            </button>
+        </div>
+
+        <div class="step">
+            <div class="step-title">
+                <span class="step-num">03</span>
+                Geode
+            </div>
+            <p>
+                <a rel="stylesheet" href="https://github.com/geode-sdk/geode/releases/tag/v5.11.2">Скачать Geode</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- DOWNLOAD -->
+
+<section class="section" id="download">
+    <div class="section-heading">
+        <div class="number">03</div>
+        <h2>Загрузка MegaHack</h2>
+    </div>
+
+    <p class="description">
+        Ссылка на скачивание необходимого файла.
+    </p>
+
+    <div class="download-box">
+        <div>
+            <h3>MegaHack v9</h3>
+            <p>Файл для установки</p>
+        </div>
+
+        <a  href="downloads/MegaHackInstaller.exe"
+           class="btn btn-primary download">
+            Скачать файл ↓
+        </a>
+    </div>
+</section>
+
+<!-- SUPPORT -->
+
+<section class="section">
+    <div class="section-heading">
+        <div class="number">04</div>
+        <h2>Нужна помощь?</h2>
+    </div>
+
+    <p class="description">
+        Если возникли проблемы с установкой,
+        напишите мне.
+    </p>
+
+    <a href="https://playerok.com/profile/xa3ada1337/products"
+       target="_blank"
+       class="btn btn-secondary">
+        Найти меня на Playerok ↗
+    </a>
+</section>
+
+<footer>
+    <strong>Created by <span>xa3ada1337</span></strong>
+    <p>
+        Personal installation guide for MegaHack v9.
+        <br>
+        Unofficial fan-made resource. Not affiliated with MegaHack.
+    </p>
+</footer>
+
+</div>
+
+<script>
+function copyText(id, button) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const old = button.innerText;
+        button.innerText = "✓ Скопировано!";
+        setTimeout(() => button.innerText = old, 1500);
+    }).catch(() => {
+        button.innerText = "Не удалось скопировать";
+    });
+}
+</script>
+
+</body>
+</html>
